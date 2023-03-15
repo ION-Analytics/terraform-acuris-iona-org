@@ -6,7 +6,7 @@ This module returns information on the ION Analytics AWS organisation
 
 ```hcl
 module "iona_org" {
-  source  = "mergermarket/iona-org/acuris"
+  source  = "ION-Analytics/iona-org/acuris"
 }
 ```
 
