@@ -1,11 +1,3 @@
-locals {
-	excluded_ous = [
-		"ou-vow6-2e9ap5r7" # Backstop Solutions
-	]
-
-  
-}
-
 data "aws_organizations_organization" "org" {}
 
 data "aws_organizations_organizational_units" "ou" {
@@ -22,15 +14,13 @@ locals{
 data "aws_organizations_organizational_unit_descendant_accounts" "ou_accounts" {
   for_each   = {
     for index, child in data.aws_organizations_organizational_units.ou.children:
-    child.name => child # Perfect, since VM names also need to be unique
-    # OR: index => vm (unique but not perfect, since index will change frequently)
-    # OR: uuid() => vm (do NOT do this! gets recreated everytime)
+    child.name => child
   }  
   parent_id = each.value.id
 }
 
 output "acuris_account_ids" {
-  value =  concat(
+  value =  toset(concat(
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Automation"].accounts[*].id,
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["BI"].accounts[*].id,
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Data"].accounts[*].id,
@@ -41,17 +31,17 @@ output "acuris_account_ids" {
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Profiles"].accounts[*].id,
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Shared"].accounts[*].id,
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Support"].accounts[*].id,
-  )
+  ))
 }
 
 output "backstop_account_ids" {
-  value = concat(
+  value = toset(concat(
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Backstop Solutions"].accounts[*].id,
-  )  
+  ))
 }
 
 output "acuris_ou_ids" {
-  value = [
+  value = toset([
     local.org_units["Automation"],
     local.org_units["BI"],
     local.org_units["Data"],
@@ -62,25 +52,25 @@ output "acuris_ou_ids" {
     local.org_units["Profiles"],
     local.org_units["Shared"],
     local.org_units["Support"],
-  ]
+  ])
 }
 
 output "backstop_ou_ids" {
-  value = [
+  value = toset([
     local.org_units["Backstop Solutions"],
-  ]
+  ])
 }
 
 output "ionasecurity_account_ids" {
-  value = concat(
+  value = toset(concat(
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["IONASecurity"].accounts[*].id,
-  )  
+  ))
 }
 
 output "ionasecurity_ou_ids" {
-  value = [
+  value = toset([
     local.org_units["IONASecurity"],
-  ]
+  ])
 }
 
     #  + Automation         = "ou-vow6-jy4ujiac"
