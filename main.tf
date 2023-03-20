@@ -40,6 +40,12 @@ output "backstop_account_ids" {
   ))
 }
 
+output "spaziodati_account_ids" {
+  value = toset(concat(
+    data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["SpazioDati"].accounts[*].id,
+  ))
+}
+
 output "acuris_ou_ids" {
   value = toset([
     local.org_units["Automation"],
@@ -58,6 +64,12 @@ output "acuris_ou_ids" {
 output "backstop_ou_ids" {
   value = toset([
     local.org_units["Backstop Solutions"],
+  ])
+}
+
+output "spaziodati_ou_ids" {
+  value = toset([
+    local.org_units["SpazioDati"],
   ])
 }
 
@@ -85,3 +97,4 @@ output "ionasecurity_ou_ids" {
     #   + Profiles           = "ou-vow6-mxkpzsut"
     #   + Shared             = "ou-vow6-74i981xm"
     #   + Support            = "ou-vow6-ebj7suq6"
+    #   + SpazioDati         = "ou-vow6-vn9ot4xd"
