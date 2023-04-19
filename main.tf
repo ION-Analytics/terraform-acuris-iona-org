@@ -75,16 +75,22 @@ output "ionasecurity_ou_ids" {
   ])
 }
 
-#  + Automation               = "ou-vow6-jy4ujiac"
-#   + BI                      = "ou-vow6-zqzhhrad"
-#   + Backstop Solutions      = "ou-vow6-2e9ap5r7"
-#   + Data                    = "ou-vow6-67d1z9u1"
-#   + DataAnalytics           = "ou-vow6-ub639ons"
-#   + DataAnalyticsRevolution = "ou-vow6-t4f3zzmm"
-#   + Growth                  = "ou-vow6-1zv40w3t"
-#   + IONASecurity            = "ou-vow6-fmizvy28"
-#   + Interface               = "ou-vow6-8p1sfhkm"
-#   + Platform                = "ou-vow6-jhctdo01"
-#   + Profiles                = "ou-vow6-mxkpzsut"
-#   + Shared                  = "ou-vow6-74i981xm"
-#   + Support                 = "ou-vow6-ebj7suq6"
+# -------------------------------------------------
+# |       ListOrganizationalUnitsForParent        |
+# +--------------------------+--------------------+
+# |  Automation              |  ou-vow6-jy4ujiac  |
+# |  BI                      |  ou-vow6-zqzhhrad  |
+# |  Backstop Solutions      |  ou-vow6-2e9ap5r7  |
+# |  Data                    |  ou-vow6-67d1z9u1  |
+# |  DataAnalytics           |  ou-vow6-ub639ons  |
+# |  DataAnalyticsRevolution |  ou-vow6-t4f3zzmm  |
+# |  Growth                  |  ou-vow6-1zv40w3t  |
+# |  IONASecurity            |  ou-vow6-fmizvy28  |
+# |  Interface               |  ou-vow6-8p1sfhkm  |
+# |  Platform                |  ou-vow6-jhctdo01  |
+# |  Profiles                |  ou-vow6-mxkpzsut  |
+# |  Selerity                |  ou-vow6-9pomrokw  |
+# |  Shared                  |  ou-vow6-74i981xm  |
+# |  SpazioDati              |  ou-vow6-vn9ot4xd  |
+# |  Support                 |  ou-vow6-ebj7suq6  |
+# +--------------------------+--------------------+
