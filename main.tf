@@ -31,7 +31,6 @@ output "acuris_account_ids" {
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Platform"].accounts[*].id,
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Profiles"].accounts[*].id,
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Shared"].accounts[*].id,
-    data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Selerity"].accounts[*].id,
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Support"].accounts[*].id,
   ))
 }
