@@ -31,13 +31,8 @@ output "acuris_account_ids" {
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Platform"].accounts[*].id,
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Profiles"].accounts[*].id,
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Shared"].accounts[*].id,
+    data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Selerity"].accounts[*].id,
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Support"].accounts[*].id,
-  ))
-}
-
-output "backstop_account_ids" {
-  value = toset(concat(
-    data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Backstop Solutions"].accounts[*].id,
   ))
 }
 
@@ -57,6 +52,13 @@ output "acuris_ou_ids" {
   ])
 }
 
+
+output "backstop_account_ids" {
+  value = toset(concat(
+    data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Backstop Solutions"].accounts[*].id,
+  ))
+}
+
 output "backstop_ou_ids" {
   value = toset([
     local.org_units["Backstop Solutions"],
@@ -72,6 +74,18 @@ output "ionasecurity_account_ids" {
 output "ionasecurity_ou_ids" {
   value = toset([
     local.org_units["IONASecurity"],
+  ])
+}
+
+output "selerity_account_ids" {
+  value = toset(concat(
+    data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Selerity"].accounts[*].id
+  ))
+}
+
+output "selerity_ou_ids" {
+  value = toset([
+    local.org_units["Selerity"],
   ])
 }
 
