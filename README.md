@@ -25,5 +25,6 @@ module "iona_org" {
 | <a name="output_backstop_ou_ids"></a> [backstop\_ou\_ids](#output\_backstop\_ou\_ids) | List of organization unit ids in the original Backstop space |
 | <a name="output_ionasecurity_account_ids"></a> [ionasecurity\_account\_ids](#output\_ionasecurity\_account\_ids) | List of account ids in the IONA Security space |
 | <a name="output_ionasecurity_ou_ids"></a> [ionasecurity\_ou\_ids](#output\_ionasecurity\_ou\_ids) | List of organization unit ids in the original IONA Security space |
-
+| <a name="output_selerity_account_ids"></a> [selerity\_account\_ids](#output\_selerity\_account\_ids) | List of account ids in the Selerity space |
+| <a name="output_selerity_ou_ids"></a> [selerity\_ou\_ids](#output\_selerity\_ou\_ids) | List of organization unit ids in the original Selerity space |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
