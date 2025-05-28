@@ -51,7 +51,6 @@ output "acuris_ou_ids" {
   ])
 }
 
-
 output "backstop_account_ids" {
   value = toset(concat(
     data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["Backstop Solutions"].accounts[*].id,
@@ -85,6 +84,18 @@ output "selerity_account_ids" {
 output "selerity_ou_ids" {
   value = toset([
     local.org_units["Selerity"],
+  ])
+}
+
+output "spaziodati_account_ids" {
+  value = toset(concat(
+    data.aws_organizations_organizational_unit_descendant_accounts.ou_accounts["SpazioDati"].accounts[*].id
+  ))
+}
+
+output "spaziodati_ou_ids" {
+  value = toset([
+    local.org_units["SpazioDati"],
   ])
 }
 
