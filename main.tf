@@ -35,6 +35,15 @@ output "acuris_account_ids" {
   ))
 }
 
+output "dev_account_ids" {
+  description = "AWS account IDs where the account name contains 'dev'"
+  value = [
+    for acct in data.aws_organizations_organization.org.accounts :
+    acct.id
+    if can(regex("(?i)dev", acct.name))
+  ]
+}
+
 output "acuris_ou_ids" {
   value = toset([
     local.org_units["Automation"],
